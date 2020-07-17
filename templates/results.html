@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+
+{% block title %} currency-UTILITY.COM {% endblock %}
+{%block body%}
+<div class="py-5 text-center">
+    <h2>Currency Converter</h2>
+    <p class="lead">Below is an appliaction which can convert one currency into its equivalent other currency using the fixer.io api</p>
+</div>
+
+<div class= "jumbotron text-center py-5 justify-content-between">
+    <form action="{{url_for('convert')}}" method="POST">
+        <div><label for="amount" aria-placeholder="311">Amount in Base Currency</label>
+            <input type="number" id="amount" name="amount" value=1 step="any">
+        </div>
+        <label for="first" name="first" aria-placeholder="USD">Base Currency  </label>
+        <select name="first" id="first">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="INR">INR</option>
+            <option value="ISK">ISK</option>
+            <option value="NZD">NZD</option>
+            <option value="PEN">PEN</option>
+            <option value="JPY">JPY</option>
+            <option value="RSD">RSD</option>
+            <option value="AUD">AUD</option>
+            <option value="BMD">BMD</option>
+        </select>
+        <!--<div><button class="btn btn-sm btn-outline-secondary">Swap</button></div>-->
+        <div>
+        <label for="SECOND" name="second" aria-placeholder="USD">Target Currency</label>
+        <select name="second" id="second">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="INR">INR</option>
+            <option value="ISK">ISK</option>
+            <option value="NZD">NZD</option>
+            <option value="PEN">PEN</option>
+            <option value="JPY">JPY</option>
+            <option value="RSD">RSD</option>
+            <option value="AUD">AUD</option>
+            <option value="BMD">BMD</option>
+        </select>
+        </div>
+        <div><button class="btn btn-sm btn-outline-secondary">Convert</button></div>
+    </form>
+</div>
+    
+{% if source %}
+    <h6 class="text-muted text-center">As on {{date}}</h6>
+    {% if amount != 1 %}
+    <h5 class="alert alert-primary text-center">1 {{source}}  is equal to  {{rate2/rate1}} {{other}}</h5>
+    <h1 class="alert alert-success text-center">{{amount}} {{source}}  is equal to  {{(rate2/rate1)*amount}} {{other}}</h1>
+    {%endif%}
+    {% if amount == 1 %}
+    <h1 class="alert alert-success text-center">{{amount}} {{source}}  is equal to  {{(rate2/rate1)*amount}} {{other}}</h1>
+    {%endif%}
+    
+{%endif%}
+{%endblock%}
+
+
+
