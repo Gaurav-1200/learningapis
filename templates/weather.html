@@ -9,15 +9,30 @@
     <p class="lead">Below is an appliaction which provides weather forecast of a location using weather api
     </p>
 </div>
+<div class="jumbotron py-5 d-flex justify-content-center">
+  <form class="form-inline" method="POST" action="{{url_for('detweather')}}">
+    <label class="sr-only" for="city" >City Name</label>
+    <div class="input-group mb-2 mr-sm-2">
+      <div class="input-group-prepend">
+        <div class="input-group-text">@</div>
+      </div>
+      <input type="text" class="form-control" id="city" name="city" placeholder="City Name">
+    </div>
+    <button type="submit" class="btn btn-outline-secondary mb-2">Forecast</button>
+  </form>
+</div>
+
+
+
 <div class="row mx-auto">
 {% for weather in weather_data %}
-    <!-- Earnings (Monthly) Card Example -->
+    
     <div class="col-xl-3 col-md-6 mb-4">
       <div class="card border-left-primary shadow h-100 py-2">
         <div class="card-body">
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
-              <!-------------------------->
+
               <div class="text-muted mx-auto">lon:{{weather.lon}}   lat:{{weather.lat}}</div>
               <div class="box">
                 <article class="media">
@@ -40,7 +55,7 @@
             </div>
 
 
-              <!-------------------------->
+
             <div class="col-auto">
               <i class="fas fa-calendar fa-2x text-gray-300"></i>
             </div>
@@ -52,4 +67,5 @@
     </div>
     {%endfor%}
 
+  
 {% endblock %}

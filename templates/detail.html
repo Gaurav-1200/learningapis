@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %} Weather-UTILITY.COM {% endblock %}
+{%block body%}
+
+
+<div class="py-5 text-center hero">
+    <h2>Weather Forecastr</h2>
+    <p class="lead">Below is an appliaction which provides weather forecast of a location using weather api
+    </p>
+</div>
+<!--<div class="card text-center">
+    <div class="card-header text-center">
+      {{weather.city}}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{weather.temperature}}°C</h5>
+      <div class="card-text">
+          {{weather.description}}
+      </div>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div class="card-footer text-muted">
+      2 days ago
+    </div>
+  </div>
+</div>-->
+<div class="card text-center  container">
+    <div class="card-body">
+      <img src="http://openweathermap.org/img/w/{{weather.icon}}.png" alt="{{weather.description}}">
+      <h2 class="card-title">{{weather.city}},{{weather.country}}</h5>
+      <div class="card-text">
+          <h3>{{weather.temperature}}°C</h3>
+          <pre class="tab"> <h6 class="text-muted">Min:<b>{{weather.min}}°C</b>       Max:<b>{{weather.max}}°C</b></h6></pre>
+          <h5>{{weather.description}}</h5>
+          <p>Lattitude:<b>{{weather.lat}}</b></p>
+          <p>Longitude:<b>{{weather.lon}}</b></p>
+          <p>Wind: <b>{{weather.wspeed}} kmph</b> @ <b>{{weather.wdir}}°</b></p>
+          <p>Presure: <b>{{weather.pres}} Pa</b></p>
+          <p>Humidity: <b>{{weather.humid}} %</b></p>
+      </div>
+      <a href="{{url_for('weather')}}" class="btn btn-primary">Back to Weather</a>
+    </div>
+    <div class="card-footer text-muted">
+      Powered by OpenWeathermap 
+    </div>
+  </div>
+
+{%endblock%}
+
+
+
+<img src="http://openweathermap.org/img/w/{{weather.icon}}.png" height="50px" width="50px"  alt="" class="align-item-center text-center">
+        <h3>{{weather.city}}</h3>

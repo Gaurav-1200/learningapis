@@ -29,6 +29,29 @@ def convert():
         rate2=float(data["rates"][other])
         date=data["date"]
         return render_template("results.html", source=source, other=other, rate1=rate1, rate2=rate2, date=date, amount=amount)
+@app.route("/detweather", methods=["POST"])
+def detweather():
+    city=request.form.get("city")
+    url='https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=96c644a71bf60305893f8549f63eeb9f'
+    res=requests.get(url.format(city))
+    data=res.json()
+    weather = {
+            'city' : city,
+            'temperature' : data['main']['temp'],
+            'description' : data['weather'][0]['description'],
+            'icon' : data['weather'][0]['icon'],
+            'lon' :data['coord']['lon'],
+            'lat' :data['coord']['lat'],
+            'country' :data['sys']['country'],'humid' :data['main']['humidity'],
+            'pres':data['main']['pressure'],
+            'wspeed':data['wind']['speed'],
+            'wdir':data['wind']['deg'],
+            'min':data['main']['temp_min'],
+            'max':data['main']['temp_max']
+        }
+    
+    return render_template("detail.html",weather=weather)
+
 
 
 @app.route("/weather")
@@ -43,14 +66,14 @@ def weather():
         weather = {
             'city' : city,
             'temperature' : data['main']['temp'],
-            'description' : data['weather'][0]['description'],
+            'description' : data['weather'][0]['main'],
             'icon' : data['weather'][0]['icon'],
             'lon' :data['coord']['lon'],
             'lat' :data['coord']['lat']
         }
         weather_data.append(weather)
     
-    return render_template("weather.html",cities=cities,weather_data=weather_data)
+    return render_template("weather.html",cities=cities,weather_data=weather_data,city=city)
 
 @app.route("/Translate")
 def translate():
