@@ -1,0 +1,148 @@
+{% extends "layout.html" %}
+
+
+{% block title %}Covid Tracker-Imperative.com {% endblock %}
+{%block body%}
+
+<div class="py-5 text-center hero">
+    <h2>Covid Tracker</h2>
+    <p class="lead">Below is an application which tracks the spread of Covid-19 in India.
+    </p>
+</div>
+<div class="text-center" ><h3>INDIA</h3></div>
+<div class="row mx-auto conatiner">
+
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-primary shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Confirmed Cases<span class="float-right text-xs text-muted">Today</span></div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{confirmed}}<span class="  float-right badge badge-pill badge-danger">{{cconfirmed}}</span></div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-calendar fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-success shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Active Cases<span class="float-right text-xs text-muted">Today</span></div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{active}}<span class="  float-right badge badge-pill badge-info">{{cactive}}</span></div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Recovered<span class="float-right text-xs text-muted">Today</span></div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{recovered}}<span class=" float-right badge badge-pill badge-success">{{crecovered}}</span></div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Deaths <span class="float-right text-xs text-muted">Today</span></div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{deaths}}
+                    <span class="float-right badge badge-pill badge-dark">{{cdeaths}}</span>
+                </div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+
+
+      <h3 class="text-center">WORLD</h3></div>
+      <div class="row mx-auto conatiner">
+      
+          <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Confirmed Cases<span class="float-right text-xs text-muted">Today</span></div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{wconfirmed}}<span class="  float-right badge badge-pill badge-danger">{{wcconfirmed}}</span></div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Active Cases<span class="float-right text-xs text-muted">Today</span></div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{wactive}}<span class="  float-right badge badge-pill badge-info">{{wcactive}}</span></div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Recovered<span class="float-right text-xs text-muted">Today</span></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{wrecovered}}<span class="  float-right badge badge-pill badge-success">{{wcrecovered}}</span></div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Deaths<span class="float-right text-xs text-muted">Today</span></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{wdeaths}}
+                          <span class=" float-right badge badge-pill badge-dark">{{wcdeaths}}</span>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
+    
+{%endblock%}

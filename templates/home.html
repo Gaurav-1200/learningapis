@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 
-{% block title %} Utility.com {% endblock %}
+{% block title %} Imperative.com {% endblock %}
 {%block body%}
     
 <div class="album py-5 bg-light">
@@ -9,39 +9,45 @@
       <div class="row">
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#abcabc"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Currency Convertor</text></svg>
+            <!--<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#abcabc"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Currency Convertor</text></svg>-->
+            <img src="https://source.unsplash.com/626x352/?money" class="card-img-top" alt="Mudra">
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button"  class="btn btn-sm btn-outline-secondary" action="{{url_for('convert')}}">Go to Currency</button>
-                </div>
+                <!--<div class="btn-group">
+                  <button type="button"  class="btn btn-sm btn-outline-secondary" action="{{url_for('convert')}}">Go to Mudra</button>
+                </div>-->
+                <a href="{{url_for('fixer')}}" class="card-link">Go to Mudra</a>
               </div>
             </div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#bcdbcd"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <!--<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#bcdbcd"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
+            <img src="https://source.unsplash.com/626x352/?weather,thunder,temperature"  class="card-img-top" alt="Expecto-Weatherum">
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Go to Weather</button>
-                </div>
+                <!--<div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Go to Expecto-Weatherum</button>
+                </div>-->
+                <a href="{{url_for('weather')}}" class="card-link">Go to Expecto-Weatherum</a>
               </div>
             </div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#defdef"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <!--<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#defdef"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
+            <img src="https://source.unsplash.com/626x352/?virus,covid,bacteria"  class="card-img-top" alt="Zeus-Weather">
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Go to Translate</button>
-                </div>
+               <!-- <div class="btn-group">
+                    <button type="button"  class="btn btn-sm btn-outline-secondary">Go to Covid Tracker</button>
+                </div>-->
+                <a href="{{url_for('covid')}}" class="card-link">Go to Covid Tracker</a>
               </div>
             </div>
           </div>
@@ -50,4 +56,4 @@
     </div>
 </div>
 
-{% endblock %}
+{% endblock%}

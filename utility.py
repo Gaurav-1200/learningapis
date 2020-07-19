@@ -32,24 +32,24 @@ def convert():
 @app.route("/detweather", methods=["POST"])
 def detweather():
     city=request.form.get("city")
+    city_name=city.capitalize()
     url='https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=96c644a71bf60305893f8549f63eeb9f'
     res=requests.get(url.format(city))
     data=res.json()
     weather = {
-            'city' : city,
+            'city' : city_name,
             'temperature' : data['main']['temp'],
-            'description' : data['weather'][0]['description'],
+            'description' : data['weather'][0]['description'].capitalize(),
             'icon' : data['weather'][0]['icon'],
             'lon' :data['coord']['lon'],
             'lat' :data['coord']['lat'],
             'country' :data['sys']['country'],'humid' :data['main']['humidity'],
             'pres':data['main']['pressure'],
-            'wspeed':data['wind']['speed'],
+            'wspeed':(data['wind']['speed']*18)/5,
             'wdir':data['wind']['deg'],
             'min':data['main']['temp_min'],
             'max':data['main']['temp_max']
         }
-    
     return render_template("detail.html",weather=weather)
 
 
@@ -75,9 +75,35 @@ def weather():
     
     return render_template("weather.html",cities=cities,weather_data=weather_data,city=city)
 
-@app.route("/Translate")
-def translate():
-    return render_template("translate.html")
+@app.route("/covid")
+def covid():
+    url='https://api.covidindiatracker.com/total.json'
+    res=requests.get(url)
+    data=res.json()
+    confirmed=data["confirmed"]
+    active=data["active"]
+    recovered=data["recovered"]
+    deaths=data["deaths"]
+    cactive=data["aChanges"]
+    cconfirmed=data["cChanges"]
+    crecovered=data["rChanges"]
+    cdeaths=data["dChanges"]
+
+    securl='https://api.covid19api.com/summary'
+    sres=requests.get(securl)
+    sdata=sres.json()
+    wconfirmed=sdata["Global"]["TotalConfirmed"]
+    wrecovered=sdata["Global"]["TotalRecovered"]
+    wdeaths=sdata["Global"]["TotalDeaths"]
+    wactive=wconfirmed-(wrecovered+wdeaths)
+    wcconfirmed=sdata["Global"]["NewConfirmed"]
+    wcrecovered=sdata["Global"]["NewRecovered"]
+    wcdeaths=sdata["Global"]["NewDeaths"]
+    wcactive=wcconfirmed-(wcrecovered+wcdeaths)
+    
+
+
+    return render_template("covid.html",confirmed=confirmed,active=active,deaths=deaths,recovered=recovered,cactive=cactive,cconfirmed=cconfirmed,cdeaths=cdeaths,crecovered=crecovered,wconfirmed=wconfirmed,wactive=wactive,wdeaths=wdeaths,wrecovered=wrecovered,wcactive=wcactive,wcconfirmed=wcconfirmed,wcdeaths=wcdeaths,wcrecovered=wcrecovered)
 
 
 
